@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.board.mapper.ReplyMapper">
+
+	<insert id="newReply" parameterType="ReplyVO">
+		INSERT INTO tbl_reply (rno, bno, reply, replyer)
+		VALUES (seq_reply.NEXTVAL, #{bno}, #{reply}, #{replyer})
+	</insert>
+    
+	<select id="getList" parameterType="long">
+		select * from tbl_reply
+		where (bno = #{bno})
+	</select>
+
+	<select id="get" parameterType="long">
+		select * from tbl_reply
+		where (rno = #{rno})
+	</select>
+
+	<update id="modify">
+		update tbl_reply
+		set
+		reply = #{reply},
+		updateDate = sysdate
+		where rno = #{rno}
+	</update>
+
+	<delete id="delete" parameterType="long"> 
+		delete tbl_reply where rno = #{rno}
+	</delete>
+
+
+</mapper>

@@ -1,0 +1,30 @@
+server:
+    port: 8084
+
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@localhost:1521:XE
+    username: agent2
+    password: 1234
+
+mybatis:
+    mapper-locations: classpath:mapper/*.xml
+    type-aliases-package: com.example.board.domain
+
+logging:
+  level:
+    org.mybatis: DEBUG
+    org.apache.ibatis: DEBUG
+    org.mybatis.spring.SqlSessionFactoryBean: DEBUG
+    com.example.agent.mapper: DEBUG
+
+
+    
+# spring:
+#   datasource:
+#     driver-class-name: com.mysql.cj.jdbc.Driver
+#     url: jdbc:mysql://localhost:3306/study_project?serverTimezone=UTC&characterEncoding=UTF-8
+#     username: study
+#     password: 1234
+
